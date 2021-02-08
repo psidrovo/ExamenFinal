@@ -71,8 +71,7 @@ public class HiloMesa extends Thread {
                     int carteraJugador = Integer.parseInt(cartera.substring(3));
                     listaJugadoresHilos.add(new Thread(new HiloJugador(codigoPartida,resultado,codigoJugador, carteraJugador, i, comboBoxModalidad.get(i).getSelectedItem().toString(),
                             labelValorApuesta, labelCarteraJugador, labelCodigoJugador, labelContadorJugadas,labelNumeroApostar)));
-                }                
-                Thread.sleep(5000);
+                }  
                 for (Thread listaJugadoresHilo : listaJugadoresHilos) {
                     listaJugadoresHilo.start();
                 }

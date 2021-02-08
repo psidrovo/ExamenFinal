@@ -70,7 +70,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         lstJugadoresRegistrados = new javax.swing.JList<>();
         jLabel2 = new javax.swing.JLabel();
-        jSpinner2 = new javax.swing.JSpinner();
+        spnTiempo = new javax.swing.JSpinner();
         jLabel3 = new javax.swing.JLabel();
         btnAgregarMesa = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
@@ -137,7 +137,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ec/edu/ups/imagenes/MesaNumeros.jpg"))); // NOI18N
 
-        jSpinner2.setModel(new javax.swing.SpinnerNumberModel(2000, 1, null, 100));
+        spnTiempo.setModel(new javax.swing.SpinnerNumberModel(2000, 1, null, 100));
 
         jLabel3.setText("TIEMPO DE EJECUCION");
 
@@ -217,7 +217,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
-                                .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(spnTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnIniciar)
                                 .addGap(18, 18, 18)
@@ -254,7 +254,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
                         .addGap(1, 1, 1)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
-                            .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(spnTiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnIniciar)
@@ -344,12 +344,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarMesaActionPerformed
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-
         ejecucion=true;
-        HiloMesa mesaHilo = new HiloMesa(10000, labelValorApuesta, labelCarteraJugador, labelCodigoJugador, labelContadorJugadas, labelNumeroApostar, comboBoxModalidad,this);
+        HiloMesa mesaHilo = new HiloMesa((int) spnTiempo.getValue(), labelValorApuesta, labelCarteraJugador, labelCodigoJugador, labelContadorJugadas, labelNumeroApostar, comboBoxModalidad,this);
         Thread mesaHiloThread = new Thread(mesaHilo);
-        mesaHiloThread.start();
-         
+        mesaHiloThread.start();         
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     private void btnIniciar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciar1ActionPerformed
@@ -447,11 +445,11 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JSpinner jSpinner2;
     private javax.swing.JList<String> lstDetalleJugadas;
     private javax.swing.JList<String> lstJugadoresRegistrados;
     private javax.swing.JList<String> lstRegistroJuegosCasa;
     private javax.swing.JPanel pnlMesaJugadores;
     private javax.swing.JSpinner spnNuevosJugadores;
+    private javax.swing.JSpinner spnTiempo;
     // End of variables declaration//GEN-END:variables
 }
